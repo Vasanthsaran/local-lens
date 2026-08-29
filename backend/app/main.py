@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import os
+from app.agent import agent_instance
 
 app = FastAPI(
     title="Local Lens API",
@@ -286,6 +287,15 @@ def read_root():
 @app.get("/api/health")
 def health_check():
     return {"status": "healthy", "service": "fastapi-backend"}
+
+@app.get("/api/agent/discover")
+async def discover_location(location: str = Query(..., description="Location or city name to research")):
+    """
+    AI Agent endpoint that performs web scraping (DuckDuckGo/Open Web)
+    and analyzes YouTube video subtitles to discover real-time places, food, and culture.
+    """
+    data = await agent_instance.run_agent(location)
+    return data
 
 @app.get("/api/places", response_model=List[Place])
 def get_places(
