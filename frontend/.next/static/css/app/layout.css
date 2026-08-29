@@ -507,6 +507,9 @@ video {
     color: #1f2937;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
+.static {
+  position: static;
+}
 .fixed {
   position: fixed;
 }
@@ -693,6 +696,9 @@ video {
 }
 .h-full {
   height: 100%;
+}
+.max-h-40 {
+  max-height: 10rem;
 }
 .max-h-\[90vh\] {
   max-height: 90vh;

@@ -165,6 +165,182 @@ PLACES_DATA: List[Place] = [
         lat=16.4975,
         lng=80.5828,
         highlights=["Rock-cut Architecture", "Krishna River Valley Views", "Reclining Vishnu Statue"]
+    ),
+    # Telangana
+    Place(
+        id="charminar",
+        name="Charminar",
+        location="Hyderabad",
+        region="Telangana",
+        category="Culture & Heritage",
+        rating=4.7,
+        review_count=35400,
+        description="16th-century mosque with four grand arches and minarets located in the heart of Hyderabad old city.",
+        image="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=800&q=80",
+        lat=17.3616,
+        lng=78.4747,
+        highlights=["Laad Bazaar", "Irani Chai Stalls", "Indo-Islamic Architecture"]
+    ),
+    Place(
+        id="golconda-fort",
+        name="Golconda Fort",
+        location="Hyderabad",
+        region="Telangana",
+        category="Heritage & History",
+        rating=4.6,
+        review_count=21000,
+        description="Massive medieval fortress complex famous for acoustic wonders, royal palaces, and diamond vaults.",
+        image="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        lat=17.3833,
+        lng=78.4011,
+        highlights=["Clapping Acoustic Trick", "Sound & Light Show", "Royal Palaces"]
+    ),
+    # Tamil Nadu
+    Place(
+        id="meenakshi-temple",
+        name="Meenakshi Amman Temple",
+        location="Madurai",
+        region="Tamil Nadu",
+        category="Culture & Heritage",
+        rating=4.9,
+        review_count=48900,
+        description="Historic Dravidian temple complex featuring 14 vibrant towering gopurams covered in thousands of colorful statues.",
+        image="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        lat=9.9195,
+        lng=78.1193,
+        highlights=["1000 Pillar Hall", "Vibrant Gopurams", "Golden Lotus Tank"]
+    ),
+    Place(
+        id="shore-temple",
+        name="Shore Temple & Monoliths",
+        location="Mahabalipuram",
+        region="Tamil Nadu",
+        category="Coastal & Heritage",
+        rating=4.7,
+        review_count=19200,
+        description="UNESCO World Heritage site with 8th-century granite rock-cut temples overlooking the Bay of Bengal.",
+        image="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        lat=12.6169,
+        lng=80.1993,
+        highlights=["Pancha Rathas", "Krishna's Butterball", "Oceanfront Ruins"]
+    ),
+    # Kerala
+    Place(
+        id="alleppey-backwaters",
+        name="Alleppey Backwaters",
+        location="Alappuzha",
+        region="Kerala",
+        category="Nature & Waterways",
+        rating=4.8,
+        review_count=32100,
+        description="Tranquil network of brackish lagoons, canals, and lakes best explored via traditional wooden houseboats.",
+        image="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80",
+        lat=9.4981,
+        lng=76.3388,
+        highlights=["Houseboat Cruise", "Paddy Field Views", "Fresh Karimeen Roast"]
+    ),
+    Place(
+        id="munnar-tea-gardens",
+        name="Munnar Tea Hills",
+        location="Munnar",
+        region="Kerala",
+        category="Hill Station & Nature",
+        rating=4.8,
+        review_count=28900,
+        description="Sprawling green tea estates surrounded by misty hills, waterfalls, and wildlife sanctuaries.",
+        image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        lat=10.0889,
+        lng=77.0595,
+        highlights=["Tea Museum", "Anamudi Peak", "Mattupetty Dam"]
+    ),
+    # Karnataka
+    Place(
+        id="mysore-palace",
+        name="Mysore Palace",
+        location="Mysuru",
+        region="Karnataka",
+        category="Culture & Heritage",
+        rating=4.8,
+        review_count=41200,
+        description="Grand Indo-Saracenic royal residence illuminated with nearly 100,000 bulbs on Sunday evenings.",
+        image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        lat=12.3052,
+        lng=76.6552,
+        highlights=["Golden Throne", "Evening Illumination", "Royal Durbar"]
+    ),
+    Place(
+        id="hampi-ruins",
+        name="Hampi Vijayanagara Ruins",
+        location="Hampi",
+        region="Karnataka",
+        category="Heritage & History",
+        rating=4.9,
+        review_count=31000,
+        description="Surreal boulder-strewn landscape hosting ancient ruins of the 14th-century Vijayanagara Empire.",
+        image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        lat=15.3350,
+        lng=76.4600,
+        highlights=["Stone Chariot", "Virupaksha Temple", "Tungabhadra River Sunset"]
+    ),
+    # Maharashtra
+    Place(
+        id="gateway-of-india",
+        name="Gateway of India",
+        location="Mumbai",
+        region="Maharashtra",
+        category="Landmark & Coastal",
+        rating=4.6,
+        review_count=52000,
+        description="Iconic waterfront arch monument built in 1924 overlooking the Arabian Sea.",
+        image="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80",
+        lat=18.9220,
+        lng=72.8347,
+        highlights=["Elephanta Island Ferry", "Taj Mahal Palace View", "Marine Drive Promenade"]
+    ),
+    # Rajasthan
+    Place(
+        id="amber-fort",
+        name="Amber Fort & Palace",
+        location="Jaipur",
+        region="Rajasthan",
+        category="Heritage & Architecture",
+        rating=4.8,
+        review_count=38900,
+        description="Majestic hilltop fort built from yellow and pink sandstone with ornate Sheesh Mahal mirror palace.",
+        image="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80",
+        lat=26.9855,
+        lng=75.8513,
+        highlights=["Sheesh Mahal", "Elephant Ride Trail", "Maota Lake View"]
+    ),
+    # Delhi
+    Place(
+        id="qutub-minar",
+        name="Qutub Minar",
+        location="New Delhi",
+        region="Delhi",
+        category="Heritage & Monument",
+        rating=4.6,
+        review_count=44100,
+        description="73-meter tall UNESCO brick minaret built in 1192 surrounded by ancient carved ruins.",
+        image="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
+        lat=28.5245,
+        lng=77.1855,
+        highlights=["Iron Pillar of Delhi", "Alai Darwaza", "Quwwat-ul-Islam Mosque"]
+    ),
+    # Goa
+    Place(
+        id="baga-beach",
+        name="Baga Beach & Fort Aguada",
+        location="North Goa",
+        region="Goa",
+        category="Coastal & Nightlife",
+        rating=4.6,
+        review_count=39000,
+        description="Lively golden sand beach with water sports, beach shacks, and nearby 17th-century Portuguese fortress.",
+        image="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80",
+        lat=15.5553,
+        lng=73.7517,
+        highlights=["Beach Shacks", "Parasailing & Jetski", "Aguada Lighthouse"]
     )
 ]
 
@@ -220,7 +396,7 @@ FOODS_DATA: List[Food] = [
     Food(
         id="hyderabadi-biryani",
         name="Hyderabadi Biryani",
-        region="Andhra Pradesh",
+        region="Telangana",
         category="Non-Veg",
         price=220,
         description="Aromatic basmati rice cooked dum style with fragrant spices, saffron, fried onions, and marinated meat.",
@@ -240,6 +416,134 @@ FOODS_DATA: List[Food] = [
         rating=4.7,
         trust_score=95.4,
         dietary="Vegetarian"
+    ),
+    # Telangana
+    Food(
+        id="hyderabadi-haleem",
+        name="Hyderabadi Haleem",
+        region="Telangana",
+        category="Non-Veg",
+        price=180,
+        description="Slow-cooked savory stew of meat, lentils, and pounded wheat flavored with aromatic spices and ghee.",
+        image="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
+        rating=4.9,
+        trust_score=99.0,
+        dietary="Non-Vegetarian"
+    ),
+    # Tamil Nadu
+    Food(
+        id="madurai-jigarthanda",
+        name="Madurai Jigarthanda",
+        region="Tamil Nadu",
+        category="Sweet",
+        price=80,
+        description="Famous refreshing dessert drink made with almond gum (badam pisin), condensed milk, and nannari syrup.",
+        image="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+        rating=4.8,
+        trust_score=97.5,
+        dietary="Vegetarian"
+    ),
+    Food(
+        id="chettinad-chicken",
+        name="Chettinad Chicken Curry",
+        region="Tamil Nadu",
+        category="Spicy",
+        price=240,
+        description="Fiery aromatic curry seasoned with fresh ground spices, star anise, kalpasi, and roasted coconut.",
+        image="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80",
+        rating=4.8,
+        trust_score=98.1,
+        dietary="Non-Vegetarian"
+    ),
+    # Kerala
+    Food(
+        id="malabar-parotta-beef",
+        name="Malabar Parotta & Beef Fry",
+        region="Kerala",
+        category="Non-Veg",
+        price=160,
+        description="Flaky layered wheat bread served with spicy roasted beef fry infused with coconut chips and curry leaves.",
+        image="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80",
+        rating=4.9,
+        trust_score=99.5,
+        dietary="Non-Vegetarian"
+    ),
+    Food(
+        id="kerala-sadya",
+        name="Kerala Sadya",
+        region="Kerala",
+        category="Traditional",
+        price=220,
+        description="Elaborate feast served on banana leaf featuring 24+ vegetarian dishes including Avial, Payasam, and Parippu.",
+        image="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=800&q=80",
+        rating=4.9,
+        trust_score=98.9,
+        dietary="Vegetarian"
+    ),
+    # Karnataka
+    Food(
+        id="mysore-masala-dosa",
+        name="Mysore Masala Dosa",
+        region="Karnataka",
+        category="Tiffin",
+        price=90,
+        description="Crispy golden crepe smeared with spicy red garlic chutney and stuffed with spiced potato mash.",
+        image="https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=800&q=80",
+        rating=4.8,
+        trust_score=97.2,
+        dietary="Vegetarian"
+    ),
+    # Maharashtra
+    Food(
+        id="vada-pav",
+        name="Mumbai Vada Pav",
+        region="Maharashtra",
+        category="Tiffin",
+        price=30,
+        description="The heart of Mumbai street food—spiced deep-fried potato dumpling tucked into a soft bun with fried chillies.",
+        image="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+        rating=4.8,
+        trust_score=98.0,
+        dietary="Vegetarian"
+    ),
+    # Rajasthan
+    Food(
+        id="dal-baati-churma",
+        name="Dal Baati Churma",
+        region="Rajasthan",
+        category="Traditional",
+        price=190,
+        description="Hard baked wheat balls soaked in pure ghee, served with spicy mixed lentil dal and sweet crushed churma.",
+        image="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=800&q=80",
+        rating=4.8,
+        trust_score=96.8,
+        dietary="Vegetarian"
+    ),
+    # Delhi
+    Food(
+        id="chole-bhature",
+        name="Delhi Chole Bhature",
+        region="Delhi",
+        category="Spicy",
+        price=110,
+        description="Fluffy fried bread served with rich, tangy chickpea curry, pickled chillies, and sliced onions.",
+        image="https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=800&q=80",
+        rating=4.7,
+        trust_score=96.4,
+        dietary="Vegetarian"
+    ),
+    # Goa
+    Food(
+        id="goan-fish-curry",
+        name="Goan Fish Curry Rice",
+        region="Goa",
+        category="Non-Veg",
+        price=220,
+        description="Tangy coconut curry cooked with fresh kingfish, teppal berries, and dried red chillies over hot steamed rice.",
+        image="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80",
+        rating=4.9,
+        trust_score=98.7,
+        dietary="Non-Vegetarian"
     )
 ]
 
