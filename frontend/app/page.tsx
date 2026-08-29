@@ -27,9 +27,11 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<any>(null);
 
-  // Trigger AI Agent Search when Region/Location changes
-  const runAgentSearch = (location: str) => {
+  // Trigger AI Agent & Backend API search when Region/Location changes
+  const runAgentSearch = (location: string) => {
     setIsAgentSearching(true);
+    
+    // 1. Fetch live AI Agent findings
     fetch(`http://localhost:8000/api/agent/discover?location=${encodeURIComponent(location)}`)
       .then((res) => res.json())
       .then((data) => {
@@ -41,7 +43,16 @@ export default function Home() {
       })
       .catch((err) => {
         setIsAgentSearching(false);
-        console.log('Error running AI Agent search:', err);
+        console.log('Error running AI Agent search, falling back to static REST endpoints:', err);
+        // Fallback to static REST APIs if agent endpoint fails or is slow
+        fetch(`http://localhost:8000/api/places?region=${encodeURIComponent(location)}`)
+          .then((r) => r.json())
+          .then((pData) => setPlaces(pData))
+          .catch(() => {});
+        fetch(`http://localhost:8000/api/food?region=${encodeURIComponent(location)}`)
+          .then((r) => r.json())
+          .then((fData) => setFoods(fData))
+          .catch(() => {});
       });
   };
 
@@ -178,12 +189,8 @@ export default function Home() {
       <div className="space-y-4">
         {/* Popular Places Carousel */}
         <PlacesCarousel
-          places={places.length > 0 ? places : [
-            { id: 'rk-beach', name: 'RK Beach', location: 'Visakhapatnam', region: 'Andhra Pradesh', category: 'Coastal & Beach', rating: 4.5, review_count: 12450, description: 'Picturesque urban beach along the Bay of Bengal.', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', highlights: [] },
-            { id: 'araku-valley', name: 'Araku Valley', location: 'Araku', region: 'Andhra Pradesh', category: 'Hill Station & Nature', rating: 4.6, review_count: 8920, description: 'Serene hill station in Eastern Ghats.', image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80', highlights: [] },
-            { id: 'kailasagiri', name: 'Kailasagiri', location: 'Visakhapatnam', region: 'Andhra Pradesh', category: 'Landmark & Views', rating: 4.4, review_count: 6540, description: 'Hilltop park offering panoramic views.', image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80', highlights: [] },
-            { id: 'borra-caves', name: 'Borra Caves', location: 'Araku', region: 'Andhra Pradesh', category: 'Heritage & Geology', rating: 4.5, review_count: 9810, description: 'Million-year-old limestone caves.', image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80', highlights: [] }
-          ]}
+          selectedRegion={selectedRegion}
+          places={places}
           onSelectPlace={(p) => setSelectedItem(p)}
           favorites={favorites}
           onToggleFavorite={handleToggleFavorite}
@@ -191,12 +198,7 @@ export default function Home() {
 
         {/* Taste the Region Food Grid */}
         <FoodGrid
-          foods={foods.length > 0 ? foods : [
-            { id: 'andhra-meals', name: 'Andhra Meals', region: 'Andhra Pradesh', category: 'Traditional', price: 120, description: 'Traditional banana leaf thali.', image: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=800&q=80', rating: 4.8, trust_score: 98.5, dietary: 'Vegetarian' },
-            { id: 'gongura-pachadi', name: 'Gongura Pachadi', region: 'Andhra Pradesh', category: 'Spicy', price: 60, description: 'Fiery tangy sorrel leaf chutney.', image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80', rating: 4.7, trust_score: 96.0, dietary: 'Vegetarian' },
-            { id: 'bamboo-chicken', name: 'Bamboo Chicken', region: 'Andhra Pradesh', category: 'Non-Veg', price: 250, description: 'Slow-roasted chicken in green bamboo.', image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80', rating: 4.9, trust_score: 99.2, dietary: 'Non-Vegetarian' },
-            { id: 'pesarattu', name: 'Pesarattu', region: 'Andhra Pradesh', category: 'Tiffin', price: 80, description: 'Nutritious green gram crepe.', image: 'https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=800&q=80', rating: 4.6, trust_score: 94.5, dietary: 'Vegetarian' }
-          ]}
+          foods={foods}
           onSelectFood={(f) => setSelectedItem(f)}
           favorites={favorites}
           onToggleFavorite={handleToggleFavorite}
@@ -204,7 +206,8 @@ export default function Home() {
 
         {/* Interactive Map View */}
         <MapView
-          places={places.length > 0 ? places : []}
+          selectedRegion={selectedRegion}
+          places={places}
           onSelectPlace={(p) => setSelectedItem(p)}
         />
       </div>

@@ -21,6 +21,7 @@ interface PlacesCarouselProps {
   onSelectPlace: (place: Place) => void;
   favorites: string[];
   onToggleFavorite: (id: string) => void;
+  selectedRegion?: string;
 }
 
 export const PlacesCarousel: React.FC<PlacesCarouselProps> = ({
@@ -28,6 +29,7 @@ export const PlacesCarousel: React.FC<PlacesCarouselProps> = ({
   onSelectPlace,
   favorites,
   onToggleFavorite,
+  selectedRegion = 'Andhra Pradesh',
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -45,7 +47,7 @@ export const PlacesCarousel: React.FC<PlacesCarouselProps> = ({
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Popular Places in Andhra Pradesh
+            Popular Places in {selectedRegion}
           </h2>
           <p className="text-xs text-slate-500 font-medium mt-1">
             Handpicked natural, coastal and historical attractions
