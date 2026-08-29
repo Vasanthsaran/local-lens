@@ -1,0 +1,196 @@
+{
+  "info": {
+    "name": "Local Lens API Collection",
+    "_postman_id": "c7a8e9d0-1234-4a5b-8c9d-0123456789ab",
+    "description": "API endpoints for Local Lens application - Discover authentic local places, foods, AI trip planner, and trust scores.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health & Root",
+      "item": [
+        {
+          "name": "Get Root Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            },
+            "description": "Returns application name, tagline, and status."
+          },
+          "response": []
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Returns status healthy."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Places",
+      "item": [
+        {
+          "name": "Get All Places",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/places?region=Andhra Pradesh",
+              "host": ["{{base_url}}"],
+              "path": ["api", "places"],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Andhra Pradesh",
+                  "description": "Filter by region"
+                }
+              ]
+            },
+            "description": "Fetch places with optional region/category filtering."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Place By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/places/araku-valley",
+              "host": ["{{base_url}}"],
+              "path": ["api", "places", "araku-valley"]
+            },
+            "description": "Get detailed metadata for a specific place."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Food & Cuisine",
+      "item": [
+        {
+          "name": "Get Food Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/food?region=Andhra Pradesh",
+              "host": ["{{base_url}}"],
+              "path": ["api", "food"],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Andhra Pradesh"
+                }
+              ]
+            },
+            "description": "Retrieve authentic regional dishes."
+          },
+          "response": []
+        },
+        {
+          "name": "Calculate Trust Score",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dish_name\": \"Bamboo Chicken\",\n  \"region\": \"Andhra Pradesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/trust-scores",
+              "host": ["{{base_url}}"],
+              "path": ["api", "trust-scores"]
+            },
+            "description": "Generates dish trust score based on Google reviews & YouTube subtitles."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AI Services",
+      "item": [
+        {
+          "name": "AI Trip Planner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region\": \"Andhra Pradesh\",\n  \"days\": 3,\n  \"interests\": [\"Beaches\", \"Food\", \"Culture\"],\n  \"budget\": \"moderate\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/ai/trip-planner",
+              "host": ["{{base_url}}"],
+              "path": ["api", "ai", "trip-planner"]
+            },
+            "description": "Claude API powered multi-day itinerary reasoning."
+          },
+          "response": []
+        },
+        {
+          "name": "Unified Search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/search?q=Araku",
+              "host": ["{{base_url}}"],
+              "path": ["api", "search"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "Araku"
+                }
+              ]
+            },
+            "description": "Unified search across places, food, and culture."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

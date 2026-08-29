@@ -1,0 +1,13 @@
+{
+  "id": "e8f9a0b1-2345-6789-abcd-ef0123456789",
+  "name": "Local Lens Environment",
+  "values": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "default",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}
