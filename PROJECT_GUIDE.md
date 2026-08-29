@@ -15,6 +15,7 @@
   - `/api/search`: Unified search across places, food, and culture.
   - `/api/ai/trip-planner`: Custom multi-day trip planner logic.
   - `/api/trust-scores`: Local trust score calculation engine.
+  - `/api/agent/discover`: **AI Agent Endpoint** that performs live multi-source research across search engines & YouTube video transcripts.
 - Configured CORS middleware to support seamless frontend integration.
 
 ### Frontend (`Next.js` + `Tailwind CSS`)
@@ -39,6 +40,7 @@
 
 ### Backend
 - **Framework**: FastAPI (Python 3.8+)
+- **AI Agent & Web Scraper Engine**: `BeautifulSoup4`, `httpx`, `youtube-transcript-api` (Scrapes open web search results + YouTube subtitles)
 - **Data Validation**: Pydantic
 - **Web Server**: Uvicorn
 - **API Architecture**: RESTful API design with CORS handling

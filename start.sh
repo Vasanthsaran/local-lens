@@ -14,7 +14,7 @@ BACKEND_PID=$!
 # 2. Start Next.js Frontend on Port 3000
 echo "Starting Next.js Frontend on http://localhost:3000..."
 cd "/home/vasanth/Local lens/frontend"
-npm run dev -p 3000 &
+npm run dev -- -p 3000 &
 FRONTEND_PID=$!
 
 echo "=========================================="

@@ -16,6 +16,9 @@ export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState('Andhra Pradesh');
   const [favorites, setFavorites] = useState<string[]>([]);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
+  const [heroBg, setHeroBg] = useState<string>('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80');
+  const [isAgentSearching, setIsAgentSearching] = useState<boolean>(false);
+  const [agentSources, setAgentSources] = useState<any>(null);
   
   // Data State
   const [places, setPlaces] = useState<any[]>([]);
@@ -24,17 +27,27 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<any>(null);
 
-  // Fetch initial data from FastAPI backend
-  useEffect(() => {
-    fetch('http://localhost:8000/api/places?region=Andhra Pradesh')
+  // Trigger AI Agent Search when Region/Location changes
+  const runAgentSearch = (location: str) => {
+    setIsAgentSearching(true);
+    fetch(`http://localhost:8000/api/agent/discover?location=${encodeURIComponent(location)}`)
       .then((res) => res.json())
-      .then((data) => setPlaces(data))
-      .catch((err) => console.log('Backend fallback used for places', err));
+      .then((data) => {
+        setIsAgentSearching(false);
+        if (data.places && data.places.length > 0) setPlaces(data.places);
+        if (data.foods && data.foods.length > 0) setFoods(data.foods);
+        if (data.hero_background_image) setHeroBg(data.hero_background_image);
+        if (data.sources_analyzed) setAgentSources(data.sources_analyzed);
+      })
+      .catch((err) => {
+        setIsAgentSearching(false);
+        console.log('Error running AI Agent search:', err);
+      });
+  };
 
-    fetch('http://localhost:8000/api/food?region=Andhra Pradesh')
-      .then((res) => res.json())
-      .then((data) => setFoods(data))
-      .catch((err) => console.log('Backend fallback used for foods', err));
+  // Fetch initial data on load
+  useEffect(() => {
+    runAgentSearch(selectedRegion);
   }, []);
 
   const handleToggleFavorite = (id: string) => {
@@ -74,10 +87,36 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSection
-        onSearch={handleHeroSearch}
+        onSearch={(region, query) => {
+          if (query) {
+            handleHeroSearch(region, query);
+            runAgentSearch(query);
+          } else {
+            runAgentSearch(region);
+          }
+        }}
         selectedRegion={selectedRegion}
-        setSelectedRegion={setSelectedRegion}
+        setSelectedRegion={(region) => {
+          setSelectedRegion(region);
+          runAgentSearch(region);
+        }}
+        heroBg={heroBg}
+        isAgentSearching={isAgentSearching}
       />
+
+      {/* AI Agent Analysis Indicator Banner */}
+      {agentSources && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+          <div className="bg-emerald-900/10 border border-emerald-500/30 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 text-xs text-emerald-900 font-medium">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-emerald-600 animate-pulse" />
+              <span>
+                <strong>AI Search Agent Active:</strong> Discovered live details for <strong>{selectedRegion}</strong> across <strong>{agentSources.web_articles_count} web pages</strong> and <strong>{agentSources.youtube_subtitles_analyzed} YouTube video transcripts</strong>!
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating AI Trip Planner Launcher Button */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex justify-end">

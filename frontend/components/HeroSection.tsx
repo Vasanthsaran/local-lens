@@ -7,12 +7,16 @@ interface HeroSectionProps {
   onSearch: (region: string, query: string) => void;
   selectedRegion: string;
   setSelectedRegion: (region: string) => void;
+  heroBg?: string;
+  isAgentSearching?: boolean;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onSearch,
   selectedRegion,
   setSelectedRegion,
+  heroBg = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80',
+  isAgentSearching = false,
 }) => {
   const [query, setQuery] = useState('');
 
@@ -23,11 +27,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <div className="relative h-[480px] md:h-[540px] w-full flex items-center justify-center overflow-hidden">
-      {/* High-res coastal landmark background photo */}
+      {/* High-res background photo with smooth transitions */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 transform scale-105"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('${heroBg}')`,
         }}
       >
         {/* Dark overlay for contrast */}
@@ -83,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="w-full md:w-auto px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm rounded-xl md:rounded-full shadow-lg transition-all flex items-center justify-center gap-2 transform active:scale-95"
           >
             <Search className="w-4 h-4" />
-            <span>Search</span>
+            <span>{isAgentSearching ? 'AI Searching...' : 'Search'}</span>
           </button>
         </form>
       </div>

@@ -89,3 +89,13 @@ def test_unified_search():
     res = response.json()
     assert len(res["foods"]) >= 1
     assert res["foods"][0]["name"] == "Gongura Pachadi"
+
+def test_agent_discover_endpoint():
+    response = client.get("/api/agent/discover?location=Andhra%20Pradesh")
+    assert response.status_code == 200
+    res = response.json()
+    assert "location" in res
+    assert res["location"] == "Andhra Pradesh"
+    assert "places" in res
+    assert "foods" in res
+    assert "sources_analyzed" in res
