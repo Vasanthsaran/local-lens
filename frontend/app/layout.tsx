@@ -1,9 +1,22 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Playfair_Display, Inter } from 'next/font/google';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'Local Lens - Discover a place like a local',
-  description: 'Authentic Places. Local Food. Real Experiences.',
+  title: 'LocalLens - Discover Authentic Travel Experiences',
+  description: 'High-end destination marketing platform for authentic places, local food, and cultural luxury experiences.',
 };
 
 export default function RootLayout({
@@ -12,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
         <link
           rel="stylesheet"
@@ -21,7 +34,7 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+      <body className="min-h-screen flex flex-col bg-[#0f0805] text-slate-100 font-sans antialiased">
         {children}
       </body>
     </html>

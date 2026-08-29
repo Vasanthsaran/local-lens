@@ -16,7 +16,7 @@ export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState('Andhra Pradesh');
   const [favorites, setFavorites] = useState<string[]>([]);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
-  const [heroBg, setHeroBg] = useState<string>('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80');
+  const [heroBg, setHeroBg] = useState<string>('https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2400&q=85');
   const [isAgentSearching, setIsAgentSearching] = useState<boolean>(false);
   const [agentSources, setAgentSources] = useState<any>(null);
   

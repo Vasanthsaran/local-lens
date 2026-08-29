@@ -1,4 +1,4 @@
-// File: /home/govind/Local lens/local-lens/frontend/app/page.tsx
+// File: /home/vasanth/Local lens/frontend/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
